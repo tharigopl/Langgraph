@@ -16,26 +16,31 @@ class AgentState(TypedDict):
 
 
 def add_node1(state: AgentState) -> AgentState:
+    """ Addition node 1"""
     state['finalNumber1'] = state['number1'] + state['number2']
     return state
 
 
 def add_node2(state: AgentState) -> AgentState:
+    """"Addition node 2"""
     state['finalNumber2'] = state['number3'] + state['number4']
     return state
 
 
 def subtract_node1(state: AgentState) -> AgentState:
+    """Subtraction node 1"""
     state['finalNumber1'] = state['number1'] - state['number2']
     return state
 
 
 def subtract_node2(state: AgentState) -> AgentState:
+    """Subtraction node 2"""
     state['finalNumber2'] = state['number3'] - state['number4']
     return state
 
 
 def decide_next_node1(state: AgentState):
+    """Router node 1"""
     if state['operation1'] == "+":
         return "add_node_1"
     else:
@@ -43,6 +48,7 @@ def decide_next_node1(state: AgentState):
 
 
 def decide_next_node2(state: AgentState):
+    """Router node 2"""
     if state['operation2'] == "+":
         return "add_node_2"
     else:
