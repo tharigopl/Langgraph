@@ -5,3 +5,7 @@ __pycache__
 node_modules/
 package-lock.json
 package.json
+uv.lock
+pyproject.toml
+.python-version
+checkpoints.sqlite

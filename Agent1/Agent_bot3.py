@@ -39,8 +39,9 @@ def model_call(state: AgentState) -> AgentState:
     """Function which makes the calls to LLM with the query"""
     #system_prompt = SystemMessage(content="You are my AI assistant, please answer my query to the best of your ability.")
     #response = model.invoke([system_prompt] + state["messages"])
+    print("Messages", state["messages"])
     response = model.invoke(state["messages"])
-
+    print("Response", response)
     return {"messages": [response]}
 
 
@@ -105,6 +106,8 @@ if __name__ == '__main__':
                             message.pretty_print()
                     printed = len(messages)
 
-    inputs = {"messages": [("user", "Addiing 40 + 10 + 10 + 10 and multiply by 10 and tell me a joke")]}
+    #inputs = {"messages": [("user", "Addiing 40 + 10 + 10 + 10 and multiply by 10 and tell me a joke")]}
+    inputs = {"messages": [("user", "Addiing 40 + 10")]}
+    #app.invoke(inputs, stream_mode="values")
     print_stream_values(app.stream(inputs, stream_mode="values"))
     #print_stream_updates(app.stream(inputs, stream_mode="updates"))
